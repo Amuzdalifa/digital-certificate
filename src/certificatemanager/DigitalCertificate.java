@@ -21,7 +21,7 @@ public class DigitalCertificate {
 
     @SuppressWarnings("deprecation")
     public DigitalCertificate() throws NoSuchAlgorithmException, SignatureException, InvalidKeyException {
-        X509Certificate cert = null;
+
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
         keyPairGenerator.initialize(2048, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
