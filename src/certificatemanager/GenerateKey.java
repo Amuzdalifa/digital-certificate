@@ -1,6 +1,9 @@
 package certificatemanager;
 
 import java.security.*;
+import java.security.spec.ECGenParameterSpec;
+
+import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 public class GenerateKey {
@@ -20,16 +23,17 @@ public class GenerateKey {
             //Set the keysize
             if ("RSA".equals(algo)) {
                 keyGen.initialize(2048);
-            } else if ("ECDSA".equals(algo)) {
-                keyGen.initialize(224);
+            } else if ("EC".equals(algo)) {
+                ECGenParameterSpec curve = new ECGenParameterSpec("secp224k1");
+                keyGen.initialize(curve);
             } else {
                 throw new NoSuchAlgorithmException();
             }
 
             //Generate the keypair
             this.keyPair = keyGen.generateKeyPair();
-        } catch (NoSuchAlgorithmException err) {
-            System.out.println(algo + " algorithm could not be found... Please use RSA or ECDSA");
+        } catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException err) {
+            System.out.println(algo + " algorithm could not be found... Please use RSA or EC");
         }
     }
 }
