@@ -6,7 +6,7 @@ import java.security.spec.ECGenParameterSpec;
 import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-public class GenerateKey {
+public class SelfKeyGenerator {
     public String algorithm;
     public KeyPair keyPair;
 
@@ -14,7 +14,7 @@ public class GenerateKey {
         Security.addProvider(new BouncyCastleProvider());
     }
 
-    public GenerateKey(String algo) {
+    public SelfKeyGenerator(String algo) {
         try {
             //Create KeyGenerator object and choose the algorithm
             KeyPairGenerator keyGen = KeyPairGenerator.getInstance(algo);

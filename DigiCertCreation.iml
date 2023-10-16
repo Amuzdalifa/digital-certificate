@@ -8,5 +8,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="bcprov-jdk18on-176" level="project" />
+    <orderEntry type="library" name="bcpkix-jdk18on-176" level="project" />
+    <orderEntry type="library" name="bcpkix-jdk15to18-176" level="project" />
+    <orderEntry type="library" name="bcpkix-jdk15to18-1761" level="project" />
   </component>
 </module>
